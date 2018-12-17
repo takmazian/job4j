@@ -18,4 +18,17 @@ public class MaxTest {
     public void equal() {
         assertThat(new Max().max(2,2),is(2));
     }
+
+    @Test
+    public void threeMax1() {
+        assertThat(new Max().max(12,3,4),is(12));
+    }
+    @Test
+    public void threeMax2() {
+        assertThat(new Max().max(2,13,4),is(13));
+    }
+    @Test
+    public void threeMax3() {
+        assertThat(new Max().max(2,3,4),is(4));
+    }
 }
