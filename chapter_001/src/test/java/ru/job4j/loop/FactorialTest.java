@@ -9,14 +9,14 @@ public class FactorialTest {
 
     @Test
     public void testFact0() {
-        assertThat(new Factorial().calc(0),is(1));
+        assertThat(new Factorial().calc(0), is(1));
     }
     @Test
     public void testFact1() {
-        assertThat(new Factorial().calc(1),is(1));
+        assertThat(new Factorial().calc(1), is(1));
     }
     @Test
     public void testFact5() {
-        assertThat(new Factorial().calc(5),is(120));
+        assertThat(new Factorial().calc(5), is(120));
     }
 }

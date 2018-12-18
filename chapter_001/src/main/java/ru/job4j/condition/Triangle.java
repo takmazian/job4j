@@ -24,7 +24,7 @@ public class Triangle {
      * @return Перимент.
      */
     public double period(double ab, double ac, double bc) {
-        return 0.5*(a.distanceTo(b) + a.distanceTo(c) + b.distanceTo(c)); // вместо -1 нужно написать формулу вычисляющую полуперимент.
+        return 0.5 * (a.distanceTo(b) + a.distanceTo(c) + b.distanceTo(c)); // вместо -1 нужно написать формулу вычисляющую полуперимент.
     }
 
     /**
@@ -40,7 +40,7 @@ public class Triangle {
         double p = this.period(ab, ac, bc);
         if (this.exist(ab, ac, bc)) {
             // написать формулу для расчета площади треугольника.
-            rsl = Math.sqrt(p*(p-ab)*(p-ac)*(p-bc));//... //вместо многоточия нужно написать формулу Герона с подставленными переменные ab, ac, dc, p.
+            rsl = Math.sqrt(p * (p - ab) * (p - ac) * (p - bc)); //... //вместо многоточия нужно написать формулу Герона с подставленными переменные ab, ac, dc, p.
             // Для извлечение квадратного корня надо использовать метод Math.sqrt()
         }
         return rsl;
@@ -57,7 +57,7 @@ public class Triangle {
      * @return true if triangle exists
      */
     private boolean exist(double ab, double ac, double bc) {
-        return ab+ac > bc && ab+bc>ac && ac+bc > ab;
+        return ab + ac > bc && ab + bc > ac && ac + bc > ab;
     }
 }
 

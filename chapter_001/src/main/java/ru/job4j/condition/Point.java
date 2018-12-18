@@ -15,21 +15,20 @@ public class Point {
     }
 
     public double distanceTo(Point that) {
-        return Math.sqrt(Math.pow(x-that.x,2) + Math.pow(y-that.y,2));
+        return Math.sqrt(Math.pow(x - that.x, 2) + Math.pow(y - that.y, 2));
     }
 
     @Override
     public String toString() {
-        return "Point{" +
-                "x=" + x +
-                ", y=" + y +
-                '}';
+        return "Point{"
+                + "x=" + x
+                + ", y=" + y + '}';
     }
 
     public static void main(String[] args) {
         Point a = new Point(0, 1);
         Point b = new Point(2, 5);
-        System.out.println("Distance from " + a + " to " + b + " is " +
-                a.distanceTo(b));
+        System.out.println("Distance from " + a + " to " + b + " is "
+                + a.distanceTo(b));
     }
 }

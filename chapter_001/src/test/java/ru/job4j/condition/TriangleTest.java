@@ -2,11 +2,11 @@ package ru.job4j.condition;
 
 import org.junit.Test;
 import static org.hamcrest.number.IsCloseTo.closeTo;
-import static  org.junit.Assert. *;
+import static  org.junit.Assert.*;
 
 public class TriangleTest {
     @Test
-    public void whenAreaSetThreePointsThenTriangleArea () {
+    public void whenAreaSetThreePointsThenTriangleArea() {
 // создаем три объекта класса Point.
         Point a = new Point(0, 0);
         Point b = new Point(0, 2);
