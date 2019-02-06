@@ -9,22 +9,41 @@ import java.util.Arrays;
  * чо-то сложно как-то получилось... может не то?
  */
 public class ArrayDuplicate {
-    public String[] remove(String[] array) {
+    static int comlpexity = 0;
+    public String[] remove1(String[] array) {
         int uniqueLength = array.length;
         for (int i = 0; i < uniqueLength; i++) {
             for (int j = i + 1; j < uniqueLength; j++) {
+                comlpexity++;
                 while (array[i].equals(array[j])) { // переставить дубликат в конец
                     uniqueLength--;
+                    comlpexity++;
                     if(j < uniqueLength) {
-                        String a = array[j];
                         array[j] = array[uniqueLength];
-                        array[uniqueLength] = a;
+                        comlpexity++;
                     } else {
                         break;
                     }
                 }
             }
         }
+        System.out.println(comlpexity);
+        return Arrays.copyOf(array, uniqueLength);
+    }
+    public String[] remove(String[] array) {
+        int uniqueLength = array.length;
+        for (int i = 0; i < uniqueLength; i++) {
+            for (int j = i + 1; j < uniqueLength; j++) {
+                comlpexity++;
+                if (array[i].equals(array[j])) { // переставить дубликат в конец
+                    uniqueLength--;
+                    array[j] = array[uniqueLength];
+                    comlpexity++;
+                    j--;
+                }
+            }
+        }
+        System.out.println(comlpexity);
         return Arrays.copyOf(array, uniqueLength);
     }
 }
