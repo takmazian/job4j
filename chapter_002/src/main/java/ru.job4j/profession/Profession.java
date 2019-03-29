@@ -9,6 +9,10 @@ public class Profession {
     private String name;
     private String profession;
 
+    Profession(String profession) {
+        this.profession = profession;
+    }
+
     public String getName() {
         return name;
     }

@@ -5,7 +5,12 @@ package ru.job4j.profession;
  * @version $Id$
  * @since 0.1
  */
-public class Engineer extends Profession{
+public class Engineer extends Profession {
+
+    public Engineer() {
+        super("Engineer");
+    }
+
     void build(House house) {
     }
 }

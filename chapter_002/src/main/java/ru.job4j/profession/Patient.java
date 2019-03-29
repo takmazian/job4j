@@ -5,6 +5,6 @@ package ru.job4j.profession;
  * @version $Id$
  * @since 0.1
  */
-public class Patient extends Profession{
+public class Patient {
     private String name;
 }
