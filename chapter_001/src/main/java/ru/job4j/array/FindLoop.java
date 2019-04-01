@@ -1,7 +1,5 @@
 package ru.job4j.array;
 
-import sun.security.x509.InvalidityDateExtension;
-
 /**
  * @author Andrey Takmazyan (takmazian@mail.ru)
  * @version $Id$

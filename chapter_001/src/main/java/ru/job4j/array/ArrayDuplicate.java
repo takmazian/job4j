@@ -10,6 +10,7 @@ import java.util.Arrays;
  */
 public class ArrayDuplicate {
     static int comlpexity = 0;
+
     public String[] remove1(String[] array) {
         int uniqueLength = array.length;
         for (int i = 0; i < uniqueLength; i++) {
@@ -18,7 +19,7 @@ public class ArrayDuplicate {
                 while (array[i].equals(array[j])) { // переставить дубликат в конец
                     uniqueLength--;
                     comlpexity++;
-                    if(j < uniqueLength) {
+                    if (j < uniqueLength) {
                         array[j] = array[uniqueLength];
                         comlpexity++;
                     } else {
@@ -30,6 +31,7 @@ public class ArrayDuplicate {
         System.out.println(comlpexity);
         return Arrays.copyOf(array, uniqueLength);
     }
+
     public String[] remove(String[] array) {
         int uniqueLength = array.length;
         for (int i = 0; i < uniqueLength; i++) {

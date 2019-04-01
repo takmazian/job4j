@@ -1,4 +1,5 @@
 package ru.job4j.array;
+
 /**
  * @author Andrey Takmazyan (takmazian@mail.ru)
  * @version $Id$

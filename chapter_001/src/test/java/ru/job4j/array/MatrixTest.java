@@ -5,7 +5,9 @@ package ru.job4j.array;
  * @version $Id$
  * @since 0.1
  */
+
 import org.junit.Test;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 

@@ -5,9 +5,9 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class CalculatorTest  {
+public class CalculatorTest {
     @Test
-    public void whenAddOnePlusOneThenTwo()  {
+    public void whenAddOnePlusOneThenTwo() {
         Calculator calc = new Calculator();
         calc.add(1D, 1D);
         double result = calc.getResult();
@@ -25,7 +25,7 @@ public class CalculatorTest  {
     }
 
     @Test
-    public void divTest()  {
+    public void divTest() {
         Calculator calc = new Calculator();
         calc.div(5D, 8D);
         double result = calc.getResult();
@@ -34,7 +34,7 @@ public class CalculatorTest  {
     }
 
     @Test
-    public void subTest()  {
+    public void subTest() {
         Calculator calc = new Calculator();
         calc.sub(1D, 5D);
         double result = calc.getResult();

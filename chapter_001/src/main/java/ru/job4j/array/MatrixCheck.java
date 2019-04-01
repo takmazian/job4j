@@ -10,7 +10,7 @@ public class MatrixCheck {
         int l = data.length;
         for (int i = 1; i < l; i++) {
             if ((data[i][i] ^ data[i - 1][i - 1])
-            || (data[i][l - i - 1] ^ data[i - 1][l - i])) {
+                    || (data[i][l - i - 1] ^ data[i - 1][l - i])) {
                 return false;
             }
         }

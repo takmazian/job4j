@@ -15,15 +15,15 @@ public class TurnTest {
 
     @Test
     public void test1() {
-        int[] expect =  (new Turn()).back(new int[] {5, 10, 3});
-        int[] result = new int[] {3, 10, 5};
+        int[] expect = (new Turn()).back(new int[]{5, 10, 3});
+        int[] result = new int[]{3, 10, 5};
         assertThat(result, is(expect));
     }
 
     @Test
     public void test2() {
-        int[] expect =  (new Turn()).back(new int[] {5, 10, 3, 15});
-        int[] result = new int[] {15, 3, 10, 5};
+        int[] expect = (new Turn()).back(new int[]{5, 10, 3, 15});
+        int[] result = new int[]{15, 3, 10, 5};
         assertThat(result, is(expect));
     }
 }

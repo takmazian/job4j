@@ -13,7 +13,7 @@ import static org.junit.Assert.assertThat;
 public class MatrixCheckTest {
     @Test
     public void whenDataMonoByTrueThenTrue() {
-        boolean[][] input = new boolean[][] {
+        boolean[][] input = new boolean[][]{
                 {true, true, true},
                 {false, true, true},
                 {true, false, true}
@@ -24,7 +24,7 @@ public class MatrixCheckTest {
 
     @Test
     public void whenDataNotMonoByTrueThenFalse() {
-        boolean[][] input = new boolean[][] {
+        boolean[][] input = new boolean[][]{
                 {true, false, true},
                 {false, false, false},
                 {true, false, true}
@@ -32,9 +32,10 @@ public class MatrixCheckTest {
         boolean result = new MatrixCheck().mono(input);
         assertThat(result, is(false));
     }
+
     @Test
     public void t1() {
-        boolean[][] input = new boolean[][] {
+        boolean[][] input = new boolean[][]{
                 {true, false},
                 {false, true},
         };
@@ -44,7 +45,7 @@ public class MatrixCheckTest {
 
     @Test
     public void t2() {
-        boolean[][] input = new boolean[][] {
+        boolean[][] input = new boolean[][]{
                 {true, false},
                 {true, true}
         };

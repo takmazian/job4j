@@ -1,4 +1,5 @@
 package ru.job4j.loop;
+
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
@@ -16,6 +17,7 @@ public class BoardTest {
                 )
         );
     }
+
     @Test
     public void testBoard5b4() {
         Board board = new Board();

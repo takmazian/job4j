@@ -1,4 +1,5 @@
 package ru.job4j.loop;
+
 import org.junit.Test;
 import ru.job4j.loop.Counter;
 
@@ -16,10 +17,12 @@ public class CounterTest {
     public void testSum2() {
         assertThat(new Counter().add(1, 2), is(2));
     }
+
     @Test
     public void testSum3() {
         assertThat(new Counter().add(1, 3), is(2));
     }
+
     @Test
     public void testSum10() {
         assertThat(new Counter().add(1, 10), is(30));

@@ -1,5 +1,7 @@
 package ru.job4j.loop;
+
 import java.util.function.BiPredicate;
+
 /**
  * @author Andrey Takmazyan (takmazian@mail.ru)
  * @version $Id$
@@ -42,7 +44,7 @@ public class Paint {
         return this.loopBy(
                 height,
                 2 * height - 1,
-                (row, column) -> Math.abs(column - height + 1) <=  row
+                (row, column) -> Math.abs(column - height + 1) <= row
         );
     }
 }
