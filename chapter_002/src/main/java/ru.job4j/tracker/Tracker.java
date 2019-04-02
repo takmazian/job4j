@@ -63,11 +63,7 @@ public class Tracker {
      * @return Возврат массива элементов
      */
     public Item[] findAll() {
-        Item[] notNullArray = new Item[count];
-        if (count != 0) {
-            System.arraycopy(items, 0, notNullArray, 0, count);
-        }
-        return notNullArray;
+        return Arrays.copyOf(items,count);
     }
 
     /**
@@ -77,15 +73,13 @@ public class Tracker {
      * @return Возврат массива элементов
      */
     public Item[] findByName(String key) {
-        Item buf;
-        int countArray = -1;
+        Item[] buf = new Item[count];
+        int countArray = 0;
         for (int i = 0; i < count; i++)
             if (items[i].getName().equals(key)){
-               buf = items[++countArray];
-               items[countArray] = items[i];
-               items[i] = buf;
+               buf[countArray++] = items[i];
             }
-        return Arrays.copyOf(items,countArray+1);
+        return Arrays.copyOf(buf,countArray);
     }
 
     /**
