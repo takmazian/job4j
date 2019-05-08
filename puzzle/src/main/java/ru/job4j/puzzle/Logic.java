@@ -70,34 +70,15 @@ public class Logic {
         boolean result = false;
         for (int i = 0; i < table.length; i++) {
             int sumInLine = 0;
+            int sumInColumn = 0;
             for (int j = 0; j < table.length; j++) {
-                if (table[i][j] == 1) {
+                if(table[i][j] != 0){
                     sumInLine++;
-                    boolean allInColumn = true;
-                    for (int z = 1; z < table.length; z++) {
-                        if (table[z][j] == 0) {
-                            allInColumn = false;
-                        }
-                    }
-                    int mid = table.length / 2;
-                    if (j == mid && !allInColumn && table[mid][mid] == 0) {
-                        int sumInCross = 0;
-                        boolean cross = true;
-                        for (int l = i + 1; l < table.length; l++) {
-                            if (table[l][mid] == 1) {
-                                sumInCross++;
-                            }
-                        }
-                        if (sumInCross == table.length - 1) {
-                            return true;
-                        }
-                    }
-                    if (allInColumn) {
-                        return true;
-                    }
                 }
+                if(table[j][i] != 0)
+                    sumInColumn++;
             }
-            if (sumInLine == table.length) {
+            if(sumInColumn == table.length || sumInLine == table.length){
                 result = true;
                 break;
             }
