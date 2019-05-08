@@ -20,7 +20,7 @@ public class Item {
         this.time = time;
     }
 
-    public Item(String name, String decs){
+    public Item(String name, String decs) {
         this.name = name;
         this.decs = decs;
         this.time = System.currentTimeMillis();

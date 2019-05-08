@@ -89,52 +89,55 @@ public class StartUI {
         if (items.length != 0) {
             System.out.println("------------------- Элементы ----------------------");
             for (Item item : items) {
-                System.out.printf("[%s] %s %s\n",item.getId(),item.getName(),item.getDecs());
+                System.out.printf("[%s] %s %s\n", item.getId(), item.getName(), item.getDecs());
             }
-        }
-        else
+        } else {
             System.out.println("Нет элементов!");
+        }
     }
 
     private void editItem() {
         String idItem = this.input.ask("Введите номер id item-а: ");
         String nameItem = this.input.ask("Введите имя item-а: ");
         String descItem = this.input.ask("Введите описание: ");
-        Item item = new Item(nameItem,descItem);
-        if(tracker.replace(idItem,item)){
+        Item item = new Item(nameItem, descItem);
+        if (tracker.replace(idItem, item)) {
             System.out.println("Элемент заменен!");
-        }
-        else
+        } else {
             System.out.println("Не удалось найти элемент с таким id");
+        }
     }
 
     private void findByID() {
         String idItem = this.input.ask("Введите номер id item-а: ");
         Item item = this.tracker.findById(idItem);
         if (item != null) {
-            System.out.printf("[%s] %s %s\n",item.getId(),item.getName(),item.getDecs());
-        } else
+            System.out.printf("[%s] %s %s\n", item.getId(), item.getName(), item.getDecs());
+        } else {
             System.out.println("Элемент не найден!");
+        }
     }
 
     private void findByName() {
         String nameItem = this.input.ask("Введите имя item-а: ");
         Item[] items = this.tracker.findByName(nameItem);
-        if(items.length != 0)
-        for (Item item : items) {
-            System.out.printf("[%s] %s %s\n",item.getId(),item.getName(),item.getDecs());
-        }
-        else
+        if (items.length != 0) {
+            for (Item item : items) {
+                System.out.printf("[%s] %s %s\n", item.getId(), item.getName(), item.getDecs());
+            }
+        } else {
             System.out.println("Не найдено элементов с таким именем!");
+        }
     }
 
     private void deleteItem() {
         String idItem = this.input.ask("Введите номер id item-а: ");
         boolean result = this.tracker.delete(idItem);
-        if (result)
+        if (result) {
             System.out.println("Элемент был удален");
-        else
+        } else {
             System.out.println("Не удалось удалить!");
+        }
     }
 
     private void showMenu() {

@@ -80,7 +80,7 @@ public class TrackerTest {
         tracker.add(two);
         tracker.add(three);
 
-        Item[] expected = {two, null, null};
+        Item[] expected = {two};
         assertThat(tracker.findByName("test2"), is(expected));
     }
 
