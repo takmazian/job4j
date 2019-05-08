@@ -85,7 +85,7 @@ public class TrackerTest {
     }
 
     @Test
-    public void whenFindItemWithDefiniteIdThenGetItemWithTheId(){
+    public void whenFindItemWithDefiniteIdThenGetItemWithTheId() {
         Tracker tracker = new Tracker();
 
         Item one = new Item("test1", "testDescription", 123L);

@@ -30,12 +30,14 @@ public class Tracker {
      */
     public boolean replace(String id, Item item) {
         boolean result = false;
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < count; i++) {
             if (items[i].getId().equals(id)) {
                 items[i] = item;
+                item.setId(id);
                 result = true;
                 break;
             }
+        }
         return result;
     }
 
@@ -47,13 +49,14 @@ public class Tracker {
      */
     public boolean delete(String id) {
         boolean result = false;
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < count; i++) {
             if (items[i].getId().equals(id)) {
                 System.arraycopy(items, i + 1, items, i, count - i - 1);
                 count--;
                 result = true;
                 break;
             }
+        }
         return result;
     }
 
@@ -63,7 +66,7 @@ public class Tracker {
      * @return Возврат массива элементов
      */
     public Item[] findAll() {
-        return Arrays.copyOf(items,count);
+        return Arrays.copyOf(items, count);
     }
 
     /**
@@ -75,11 +78,12 @@ public class Tracker {
     public Item[] findByName(String key) {
         Item[] buf = new Item[count];
         int countArray = 0;
-        for (int i = 0; i < count; i++)
-            if (items[i].getName().equals(key)){
-               buf[countArray++] = items[i];
+        for (int i = 0; i < count; i++) {
+            if (items[i].getName().equals(key)) {
+                buf[countArray++] = items[i];
             }
-        return Arrays.copyOf(buf,countArray);
+        }
+        return Arrays.copyOf(buf, countArray);
     }
 
     /**
@@ -90,16 +94,18 @@ public class Tracker {
      */
     public Item findById(String id) {
         Item item = null;
-        for (int i = 0; i < count; i++)
-            if (items[i].getId().equals(id))
+        for (int i = 0; i < count; i++) {
+            if (items[i].getId().equals(id)) {
                 item = items[i];
+            }
+        }
         return item;
     }
 
     /**
      * Генерация ID
      *
-     *  @return Возврат сгенерированый ID
+     * @return Возврат сгенерированый ID
      */
     public String generateId() {
         String result = "";
