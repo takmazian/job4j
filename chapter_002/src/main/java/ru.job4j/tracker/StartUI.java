@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.StringJoiner;
+
 /**
  * @version $Id$
  * @since 0.1
@@ -141,14 +143,17 @@ public class StartUI {
     }
 
     private void showMenu() {
-        System.out.println("Меню.");
-        System.out.println("0. Add new Item");
-        System.out.println("1. Show all items");
-        System.out.println("2. Edit item");
-        System.out.println("3. Delete item");
-        System.out.println("4. Find item by Id");
-        System.out.println("5. Find items by name");
-        System.out.println("6. Exit Program");
+        String menu = new StringJoiner(System.lineSeparator())
+                .add("Меню.")
+                .add("0. Add new Item")
+                .add("1. Show all items")
+                .add("2. Edit item")
+                .add("3. Delete item")
+                .add("4. Find item by Id")
+                .add("5. Find items by name")
+                .add("6. Exit Program")
+                .toString();
+        System.out.print(menu);
     }
 
     /**

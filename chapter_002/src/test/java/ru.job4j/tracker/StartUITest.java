@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.StringJoiner;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -15,6 +16,17 @@ public class StartUITest {
     private final PrintStream stdout = System.out;
     // буфер для результата.
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+    private String menu = new StringJoiner(System.lineSeparator())
+            .add("Меню.")
+            .add("0. Add new Item")
+            .add("1. Show all items")
+            .add("2. Edit item")
+            .add("3. Delete item")
+            .add("4. Find item by Id")
+            .add("5. Find items by name")
+            .add("6. Exit Program")
+            .toString();
 
     @Before
     public void loadOutput() {
@@ -39,23 +51,8 @@ public class StartUITest {
         // создаём StartUI и вызываем метод init()
         new StartUI(input, tracker).init();
         // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
-        assertThat(this.out.toString(), is("Меню.\r\n" +
-                "0. Add new Item\r\n" +
-                "1. Show all items\r\n" +
-                "2. Edit item\r\n" +
-                "3. Delete item\r\n" +
-                "4. Find item by Id\r\n" +
-                "5. Find items by name\r\n" +
-                "6. Exit Program\r\n" +
-                "Элемент заменен!\r\n" +
-                "Меню.\r\n" +
-                "0. Add new Item\r\n" +
-                "1. Show all items\r\n" +
-                "2. Edit item\r\n" +
-                "3. Delete item\r\n" +
-                "4. Find item by Id\r\n" +
-                "5. Find items by name\r\n" +
-                "6. Exit Program\r\n"));
+        String result = menu + "Элемент заменен!\r\n" + menu;
+        assertThat(this.out.toString(), is(result));
     }
 
     @Test
@@ -65,23 +62,9 @@ public class StartUITest {
         Item item = tracker.add(new Item("test name", "desc"));
         Input input = new StubInput(new String[]{"3", item.getId(), "6"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();
-        assertThat(this.out.toString(), is("Меню.\r\n" +
-                "0. Add new Item\r\n" +
-                "1. Show all items\r\n" +
-                "2. Edit item\r\n" +
-                "3. Delete item\r\n" +
-                "4. Find item by Id\r\n" +
-                "5. Find items by name\r\n" +
-                "6. Exit Program\r\n" +
+        assertThat(this.out.toString(), is(menu +
                 "Элемент был удален\r\n" +
-                "Меню.\r\n" +
-                "0. Add new Item\r\n" +
-                "1. Show all items\r\n" +
-                "2. Edit item\r\n" +
-                "3. Delete item\r\n" +
-                "4. Find item by Id\r\n" +
-                "5. Find items by name\r\n" +
-                "6. Exit Program\r\n"));
+                menu));
     }
 
 
