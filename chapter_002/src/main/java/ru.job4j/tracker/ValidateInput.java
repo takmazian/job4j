@@ -13,7 +13,7 @@ public class ValidateInput implements Input {
     }
 
     @Override
-    public int ask(String question, Integer[] range){
+    public int ask(String question, Integer[] range) {
         boolean invalid = true;
         int value = -1;
         do {
@@ -26,6 +26,6 @@ public class ValidateInput implements Input {
                 System.out.println("Please enter validate data again.");
             }
         } while (invalid);
-        return  value;
+        return value;
     }
 }
