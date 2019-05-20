@@ -20,9 +20,9 @@ public class ConsoleInput implements Input {
                 break;
             }
         }
-        if (!exist)
+        if (!exist) {
             throw new MenuOutException("Out of  menu range.");
-        else {
+        } else {
             return key;
         }
     }

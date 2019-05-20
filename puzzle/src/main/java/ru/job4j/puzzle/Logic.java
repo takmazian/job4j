@@ -4,7 +4,6 @@ import ru.job4j.puzzle.firuges.Cell;
 import ru.job4j.puzzle.firuges.Figure;
 
 /**
- *
  * @author Petr Arsentev (parsentev@yandex.ru)
  * @version $Id$
  * @since 0.1
@@ -72,13 +71,14 @@ public class Logic {
             int sumInLine = 0;
             int sumInColumn = 0;
             for (int j = 0; j < table.length; j++) {
-                if(table[i][j] != 0){
+                if (table[i][j] != 0) {
                     sumInLine++;
                 }
-                if(table[j][i] != 0)
+                if (table[j][i] != 0) {
                     sumInColumn++;
+                }
             }
-            if(sumInColumn == table.length || sumInLine == table.length){
+            if (sumInColumn == table.length || sumInLine == table.length) {
                 result = true;
                 break;
             }

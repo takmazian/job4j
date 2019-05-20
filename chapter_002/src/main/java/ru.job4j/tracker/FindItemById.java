@@ -1,17 +1,11 @@
 package ru.job4j.tracker;
 
-public class FindItemById implements UserAction {
+public class FindItemById extends BaseAction {
     Integer key;
     String info;
 
     FindItemById(int key, String info) {
-        this.key = key;
-        this.info = info;
-    }
-
-    @Override
-    public int key() {
-        return key;
+        super(key, info);
     }
 
     /**
@@ -21,7 +15,7 @@ public class FindItemById implements UserAction {
     public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Find item by Id --------------");
         String idItem = input.ask("Please, provide item id: ");
-        Item item =tracker.findById(idItem);
+        Item item = tracker.findById(idItem);
         if (item != null) {
             System.out.println("------------ Item with Id : " + item.getId());
             System.out.println("------------ Item with Name : " + item.getName());
@@ -31,8 +25,4 @@ public class FindItemById implements UserAction {
         }
     }
 
-    @Override
-    public String info() {
-        return info;
-    }
 }

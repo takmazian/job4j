@@ -17,6 +17,8 @@ public class StartUI {
      */
     private final Tracker tracker;
 
+    private boolean working = true;
+
     /**
      * Конструтор инициализирующий поля.
      *
@@ -34,7 +36,7 @@ public class StartUI {
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
         ArrayList<Integer> range = new ArrayList<>();
-        menu.fillActions();
+        menu.fillActions(this);
         for (int i = 0; i < menu.getActionsLentgh(); i++) {
             range.add(i);
         }
@@ -43,7 +45,7 @@ public class StartUI {
         do {
             menu.show();
             menu.select(input.ask("Select: ", rangeArray));
-        } while (!"y".equals(this.input.ask("Exit?(y): ")));
+        } while (this.working);
     }
 
     /**
@@ -58,5 +60,9 @@ public class StartUI {
                 ),
                 new Tracker()
         ).init();
+    }
+
+    public void stop() {
+        this.working = false;
     }
 }
