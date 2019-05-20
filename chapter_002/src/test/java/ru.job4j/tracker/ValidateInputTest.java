@@ -44,5 +44,19 @@ public class ValidateInputTest {
                 )
         );
     }
+
+    @Test
+    public void whenNotInRangeInput() {
+        ValidateInput input = new ValidateInput(
+                new StubInput(new String[] {"8", "1"})
+        );
+        input.ask("Enter", new Integer[]{1});
+        assertThat(
+                this.mem.toString(),
+                is(
+                        String.format("Please select key from menu.%n")
+                )
+        );
+    }
 }
 
