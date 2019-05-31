@@ -8,8 +8,8 @@
     <url>http://job4j.ru/</url>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>12</maven.compiler.source>
+        <maven.compiler.target>12</maven.compiler.target>
         <project.build.sourceEndcoding>UTF-8</project.build.sourceEndcoding>
     </properties>
 
@@ -17,6 +17,7 @@
         <module>chapter_001</module>
         <module>chapter_002</module>
         <module>puzzle</module>
+        <module>chess</module>
     </modules>
 
     <build>
