@@ -25,8 +25,7 @@ public class PriorityQueue {
             }
             if (position != -1) {
                 tasks.add(position, task);
-            }
-            else{
+            } else {
                 tasks.addFirst(task);
             }
         } else {
