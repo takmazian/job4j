@@ -6,10 +6,12 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.StringJoiner;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class StartUITest {
     // поле содержит дефолтный вывод в консоль.
@@ -76,7 +78,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();     // создаём Tracker
         Input input = new StubInput(new String[]{"0", "test name", "desc", "6"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
-        assertThat(tracker.findAll()[0].getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
+        assertThat(tracker.findAll().get(0).getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
     }
 
     @Test
@@ -100,7 +102,7 @@ public class StartUITest {
         Item item = tracker.add(new Item("test name", "desc"));
         Input input = new StubInput(new String[]{"3", item.getId(), "6"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();
-        assertThat(tracker.findAll(), is(new Item[]{}));
+        assertThat(tracker.findAll(), is(new ArrayList<Item>()));
     }
 
     @Test
@@ -117,12 +119,17 @@ public class StartUITest {
     @Test
     public void whenFindByNameThenHasItemWithId() {
         Tracker tracker = new Tracker();
-
-        tracker.add(new Item("test name", "desc"));
-        Item item = tracker.add(new Item("test name", "desc"));
+        ArrayList<Item> result = new ArrayList<>();
+        Item item = new Item("test name", "desc");
+        result.add(item);
+        tracker.add(item);
+        item = new Item("test name", "desc");
+        tracker.add(item);
         Input input = new StubInput(new String[]{"5", item.getName(), "6"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();
-        assertThat(tracker.findByName(item.getName()), is(new Item[]{tracker.findAll()[0], tracker.findAll()[1]}));
+
+        result.add(item);
+        assertTrue(tracker.findByName(item.getName()).containsAll(result));
     }
 
 }
