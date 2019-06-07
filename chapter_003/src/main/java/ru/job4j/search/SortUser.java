@@ -23,7 +23,22 @@ public class SortUser {
         Comparator<User> comparatorUser = new Comparator<User>() {
             @Override
             public int compare(User o1, User o2) {
-                int result = Integer.compare(o1.getName().length(), o2.getName().length());
+                int result = 0;
+                int maxLength = o1.getName().length() > o2.getName().length() ? o1.getName().length() : o2.getName().length();
+                for(int i = 0; i < maxLength; i++){
+                    int char1 = 'Z' + 1;
+                    int char2 = 'Z' + 1;
+                    try {
+                        char1 = o1.getName().charAt(i);
+                    }catch (Exception e){}
+                    try {
+                        char2 = o2.getName().charAt(i);
+                    }catch (Exception e){}
+                    if(char1 != char2){
+                        result = Integer.compare(char1,char2);
+                        break;
+                    }
+                }
                 return result == 0 ? Integer.compare(o1.getAge(), o2.getAge()) : result;
             }
         };

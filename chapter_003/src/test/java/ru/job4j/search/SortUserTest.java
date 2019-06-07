@@ -52,12 +52,15 @@ public class SortUserTest {
         User user1 = new User("Vasya", 15);
         User user2 = new User("Petyan", 16);
         User user3 = new User("Kolyan", 18);
+        User user4 = new User("Petyan", 25);
         users.add(user2);
         users.add(user1);
         users.add(user3);
-        checkList.add(user1);
-        checkList.add(user2);
+        users.add(user4);
         checkList.add(user3);
+        checkList.add(user2);
+        checkList.add(user4);
+        checkList.add(user1);
         sortUser.sortByAllFields(users);
         assertEquals(users, checkList);
     }
