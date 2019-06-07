@@ -25,4 +25,40 @@ public class SortUserTest {
         userTreeSet.add(user);
         assertEquals(sortUser.sort(users), userTreeSet);
     }
+
+    @Test
+    public void testSortByLength() {
+        SortUser sortUser = new SortUser();
+        ArrayList<User> users = new ArrayList<>();
+        ArrayList<User> checkList = new ArrayList<>();
+        User user1 = new User("Vasya", 15);
+        User user2 = new User("Petyan", 16);
+        User user3 = new User("Kolyan", 18);
+        users.add(user2);
+        users.add(user1);
+        users.add(user3);
+        checkList.add(user1);
+        checkList.add(user2);
+        checkList.add(user3);
+        sortUser.sortNameLength(users);
+        assertEquals(users, checkList);
+    }
+
+    @Test
+    public void testSortByAll() {
+        SortUser sortUser = new SortUser();
+        ArrayList<User> users = new ArrayList<>();
+        ArrayList<User> checkList = new ArrayList<>();
+        User user1 = new User("Vasya", 15);
+        User user2 = new User("Petyan", 16);
+        User user3 = new User("Kolyan", 18);
+        users.add(user2);
+        users.add(user1);
+        users.add(user3);
+        checkList.add(user1);
+        checkList.add(user2);
+        checkList.add(user3);
+        sortUser.sortByAllFields(users);
+        assertEquals(users, checkList);
+    }
 }
