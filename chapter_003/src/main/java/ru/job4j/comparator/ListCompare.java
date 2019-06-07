@@ -7,22 +7,18 @@ public class ListCompare implements Comparator<String> {
     @Override
     public int compare(String left, String right) {
         int result = 0;
-        int maxLength = left.length() > right.length() ? left.length() : right.length();
-        for (int i = 0; i < maxLength; i++) {
-            int leftSymb = 'Z' + 1;
-            int rightSymb = 'Z' + 1;
-            try {
-                leftSymb = left.charAt(i);
-            } catch (Exception e) {
-            }
-            try {
-                rightSymb = right.charAt(i);
-            } catch (Exception e) {
-            }
+        int minLength = left.length() > right.length() ? right.length() : left.length();
+        int i;
+        for (i = 0; i < minLength; i++) {
+            int leftSymb = left.charAt(i);
+            int rightSymb = right.charAt(i);
             if (leftSymb != rightSymb) {
                 result = Integer.compare(leftSymb, rightSymb);
                 break;
             }
+        }
+        if (result == 0 && left.length() != right.length()) {
+            result = Integer.compare(left.length(), right.length()) == 1 ? 1 : -1;
         }
         return result;
     }
