@@ -27,7 +27,7 @@ public class StartUITest {
             .add("3. Delete item")
             .add("4. Find item by Id")
             .add("5. Find items by name")
-            .add("6. Exit Program\r\n")
+            .add("6. Exit Program" + System.lineSeparator())
             .toString();
 
     @Before
@@ -54,11 +54,12 @@ public class StartUITest {
         new StartUI(input, tracker).init();
         // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
         assertThat(this.out.toString(), is(menu
-                + "------------ Edit item --------------\r\n"
-                + "Element was replaced!\r\n"
-                + "------------ New Item with Id : " + item.getId() + "\r\n"
-                + "------------ New Item with Name : test replace\r\n"
-                + "------------ New Item with Description : заменили заявку\r\n" + menu));
+                + "------------ Edit item --------------"
+                + System.lineSeparator() + "Element was replaced!"
+                + System.lineSeparator() + "------------ New Item with Id : " + item.getId()
+                + System.lineSeparator() + "------------ New Item with Name : test replace"
+                + System.lineSeparator() + "------------ New Item with Description : заменили заявку"
+                + System.lineSeparator() + menu));
 
     }
 
@@ -69,7 +70,7 @@ public class StartUITest {
         Item item = tracker.add(new Item("test name", "desc"));
         Input input = new StubInput(new String[]{"3", item.getId(), "6"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();
-        assertThat(this.out.toString(), is(menu + "Item was removed!\r\n" + menu));
+        assertThat(this.out.toString(), is(menu + "Item was removed!" + System.lineSeparator() + menu));
     }
 
 
