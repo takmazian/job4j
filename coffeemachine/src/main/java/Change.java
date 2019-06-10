@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Change {
     int[] changes(int value, int price) {
         int[] maxCoins = new int[(value - price) / 10 + 1];
@@ -21,6 +23,6 @@ public class Change {
                 remain-=1;
             }
         }
-        return maxCoins;
+        return Arrays.copyOf(maxCoins,iter);
     }
 }
