@@ -14,3 +14,6 @@ after_success:
 env:
   global:
     - CODECOV_TOKEN="181898d4-6da1-438f-a9cb-6e3e205f0146"
+
+script:
+  - mvn test -B
