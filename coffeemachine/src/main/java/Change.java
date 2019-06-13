@@ -2,22 +2,14 @@ import java.util.Arrays;
 
 public class Change {
     int[] changes(int value, int price) {
-        int[] maxCoins = new int[(value - price) / 10 + 1];
-        int remain = value - price;
+        value-=price;
+        int[] maxCoins = new int[value / 10 + 1];
+        int[] COINS = new int[]{10,5,2,1};
         int iter = 0;
-        while (remain > 0) {
-            if (remain >= 10) {
-                maxCoins[iter++] = 10;
-                remain -= 10;
-            } else if (remain >= 5) {
-                maxCoins[iter++] = 5;
-                remain -= 5;
-            } else if (remain >= 2) {
-                maxCoins[iter++] = 2;
-                remain -= 2;
-            } else {
-                maxCoins[iter++] = 1;
-                remain -= 1;
+        for(int coin : COINS) {
+            while (value - coin >= 0) {
+                    maxCoins[iter++] = coin;
+                    value-=coin;
             }
         }
         return Arrays.copyOf(maxCoins, iter);
