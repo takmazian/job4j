@@ -1,11 +1,13 @@
 package ru.job4j.tracker;
 
+import java.util.function.Consumer;
+
 public class UpdateItem extends BaseAction {
     Integer key;
     String info;
 
-    UpdateItem(int key, String info) {
-        super(key, info);
+    UpdateItem(int key, String info, Consumer<String> output) {
+        super(key, info,output);
     }
 
     /**
@@ -13,18 +15,18 @@ public class UpdateItem extends BaseAction {
      */
     @Override
     public void execute(Input input, Tracker tracker) {
-        System.out.println("------------ Edit item --------------");
+        output.accept("------------ Edit item --------------");
         String idItem = input.ask("Please, provide item id: ");
         String name = input.ask("Please, provide item name:");
         String desc = input.ask("Please, provide item description:");
         Item item = new Item(name, desc);
         if (tracker.replace(idItem, item)) {
-            System.out.println("Element was replaced!");
-            System.out.println("------------ New Item with Id : " + item.getId());
-            System.out.println("------------ New Item with Name : " + item.getName());
-            System.out.println("------------ New Item with Description : " + item.getDesc());
+            output.accept("Element was replaced!");
+            output.accept("------------ New Item with Id : " + item.getId());
+            output.accept("------------ New Item with Name : " + item.getName());
+            output.accept("------------ New Item with Description : " + item.getDesc());
         } else {
-            System.out.println("Could not find item with id!");
+            output.accept("Could not find item with id!");
         }
     }
 

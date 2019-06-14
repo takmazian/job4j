@@ -1,13 +1,14 @@
 package ru.job4j.tracker;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class ShowItems extends BaseAction {
     Integer key;
     String info;
 
-    ShowItems(int key, String info) {
-        super(key, info);
+    ShowItems(int key, String info, Consumer<String> output) {
+        super(key, info,output);
     }
 
     /**
