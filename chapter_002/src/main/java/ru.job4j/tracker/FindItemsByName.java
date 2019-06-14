@@ -1,13 +1,14 @@
 package ru.job4j.tracker;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class FindItemsByName extends BaseAction {
     Integer key;
     String info;
 
-    FindItemsByName(int key, String info) {
-        super(key, info);
+    FindItemsByName(int key, String info, Consumer<String> output) {
+        super(key, info,output);
     }
 
     /**
@@ -22,7 +23,7 @@ public class FindItemsByName extends BaseAction {
                 System.out.printf("[%s] %s %s\n", item.getId(), item.getName(), item.getDesc());
             }
         } else {
-            System.out.println("Could not find item(s)!");
+            output.accept("Could not find item(s)!");
         }
     }
 

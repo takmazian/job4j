@@ -1,11 +1,13 @@
 package ru.job4j.tracker;
 
+import java.util.function.Consumer;
+
 public class DeleteItem extends BaseAction {
     Integer key;
     String info;
 
-    DeleteItem(int key, String info) {
-        super(key, info);
+    DeleteItem(int key, String info, Consumer<String> output) {
+        super(key, info,output);
     }
 
     /**
@@ -16,9 +18,9 @@ public class DeleteItem extends BaseAction {
         String idItem = input.ask("Pleas, enter item's id: ");
         boolean result = tracker.delete(idItem);
         if (result) {
-            System.out.println("Item was removed!");
+            output.accept("Item was removed!");
         } else {
-            System.out.println("Could not remove item with id!");
+            output.accept("Could not remove item with id!");
         }
     }
 
