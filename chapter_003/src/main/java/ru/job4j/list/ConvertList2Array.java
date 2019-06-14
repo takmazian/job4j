@@ -23,11 +23,7 @@ public class ConvertList2Array {
 
     public List<Integer> convert(List<int[]> list) {
         List<Integer> result = new ArrayList<>();
-        for (int[] array : list) {
-            for (int elem : array) {
-                result.add(elem);
-            }
-        }
+        list.forEach(elem -> Arrays.stream(elem).forEach(result::add));
         return result;
     }
 

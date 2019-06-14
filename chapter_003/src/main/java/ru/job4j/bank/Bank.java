@@ -22,38 +22,22 @@ public class Bank {
     }
 
     private User findUserByPassport(String passport) {
-        User result = null;
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                result = user;
-            }
-        }
-        return result;
+        return users.keySet().stream().filter(user -> user.getPassport().equals(passport)).findFirst().get();
     }
 
     private Account findAccountByRequisites(List<Account> accounts, String requisities) {
-        Account result = null;
-        for (Account account : accounts) {
-            if (account.getRequisites().equals(requisities)) {
-                result = account;
-            }
-        }
-        return result;
+        return accounts.stream().filter(account -> account.getRequisites().equals(requisities)).findFirst().get();
     }
 
     public void addAccountToUser(String passport, Account account) {
         User user = findUserByPassport(passport);
-        if (user != null) {
-            users.get(user).add(account);
-        }
+        users.get(user).add(account);
     }
 
 
     public void deleteAccountFromUser(String passport, Account account) {
         User user = findUserByPassport(passport);
-        if (user != null) {
-            users.get(user).remove(account);
-        }
+        users.get(user).remove(account);
     }
 
     public List<Account> getUserAccounts(String passport) {
@@ -66,7 +50,7 @@ public class Bank {
         List<Account> accounts2 = users.get(findUserByPassport(destPassport));
         Account account1 = findAccountByRequisites(accounts1, srcRequisite);
         Account account2 = findAccountByRequisites(accounts2, dstRequisite);
-        if (account1 != null && account2 != null && account1.getValue() - amount >= 0) {
+        if (account1.getValue() - amount >= 0) {
             account2.setValue(account2.getValue() + amount);
             result = true;
         }
