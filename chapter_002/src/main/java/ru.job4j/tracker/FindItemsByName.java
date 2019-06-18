@@ -8,7 +8,7 @@ public class FindItemsByName extends BaseAction {
     String info;
 
     FindItemsByName(int key, String info, Consumer<String> output) {
-        super(key, info,output);
+        super(key, info, output);
     }
 
     /**

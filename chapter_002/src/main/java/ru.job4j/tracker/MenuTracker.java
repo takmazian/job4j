@@ -26,7 +26,7 @@ public class MenuTracker {
      * @param input   объект типа Input
      * @param tracker объект типа Tracker
      */
-    public MenuTracker(Input input, Tracker tracker,Consumer<String> output) {
+    public MenuTracker(Input input, Tracker tracker, Consumer<String> output) {
         this.input = input;
         this.tracker = tracker;
         this.output = output;
@@ -45,12 +45,12 @@ public class MenuTracker {
      * Метод заполняет массив.
      */
     public void fillActions(StartUI ui) {
-        this.actions.add(new AddItem(0, "Add new item",output));
-        this.actions.add(new ShowItems(1, "Show all items",output));
-        this.actions.add(new UpdateItem(2, "Edit item",output));
-        this.actions.add(new DeleteItem(3, "Delete item",output));
-        this.actions.add(new FindItemById(4, "Find item by Id",output));
-        this.actions.add(new FindItemsByName(5, "Find items by name",output));
+        this.actions.add(new AddItem(0, "Add new item", output));
+        this.actions.add(new ShowItems(1, "Show all items", output));
+        this.actions.add(new UpdateItem(2, "Edit item", output));
+        this.actions.add(new DeleteItem(3, "Delete item", output));
+        this.actions.add(new FindItemById(4, "Find item by Id", output));
+        this.actions.add(new FindItemsByName(5, "Find items by name", output));
         this.actions.add(new ExitProgram(6, "Exit Program", output, ui));
     }
 

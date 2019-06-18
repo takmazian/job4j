@@ -8,7 +8,7 @@ public class ShowItems extends BaseAction {
     String info;
 
     ShowItems(int key, String info, Consumer<String> output) {
-        super(key, info,output);
+        super(key, info, output);
     }
 
     /**

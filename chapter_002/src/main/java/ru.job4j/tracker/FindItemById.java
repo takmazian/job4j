@@ -7,7 +7,7 @@ public class FindItemById extends BaseAction {
     String info;
 
     FindItemById(int key, String info, Consumer<String> output) {
-        super(key, info,output);
+        super(key, info, output);
     }
 
     /**

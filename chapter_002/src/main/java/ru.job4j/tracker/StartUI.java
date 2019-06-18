@@ -37,7 +37,7 @@ public class StartUI {
      * Основой цикл программы.
      */
     public void init() {
-        MenuTracker menu = new MenuTracker(this.input, this.tracker,this.output);
+        MenuTracker menu = new MenuTracker(this.input, this.tracker, this.output);
         ArrayList<Integer> range = new ArrayList<>();
         menu.fillActions(this);
         for (int i = 0; i < menu.getActionsLentgh(); i++) {
@@ -57,12 +57,7 @@ public class StartUI {
      * @param args - не используются
      */
     public static void main(String[] args) {
-        new StartUI(
-                new ValidateInput(
-                        new ConsoleInput()
-                ),
-                new Tracker()
-        ,System.out::println).init();
+        new StartUI(new ValidateInput(new ConsoleInput()), new Tracker(), System.out::println).init();
     }
 
     public void stop() {

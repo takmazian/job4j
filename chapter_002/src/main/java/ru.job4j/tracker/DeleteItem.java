@@ -7,7 +7,7 @@ public class DeleteItem extends BaseAction {
     String info;
 
     DeleteItem(int key, String info, Consumer<String> output) {
-        super(key, info,output);
+        super(key, info, output);
     }
 
     /**
