@@ -14,7 +14,7 @@ public class SchoolTest {
     private List<Student> students = new ArrayList<>();
 
     @Test
-    public void getListClassA() {
+    public void getListClassA(){
         School school = new School();
         Student student1 = new Student(70);
         Student student2 = new Student(45);
@@ -37,7 +37,7 @@ public class SchoolTest {
     }
 
     @Test
-    public void getListClassB() {
+    public void getListClassB(){
         School school = new School();
         Student student1 = new Student(70);
         Student student2 = new Student(45);
@@ -59,7 +59,7 @@ public class SchoolTest {
     }
 
     @Test
-    public void getListClassC() {
+    public void getListClassC(){
         School school = new School();
         Student student1 = new Student(70);
         Student student2 = new Student(45);

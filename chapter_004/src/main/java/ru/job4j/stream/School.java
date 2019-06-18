@@ -16,7 +16,7 @@ public class School {
         studentList.add(student);
     }
 
-    List<Student> getStudents() {
+    List<Student> getStudents(){
         return studentList;
     }
 }
