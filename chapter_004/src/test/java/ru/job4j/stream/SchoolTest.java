@@ -16,14 +16,14 @@ public class SchoolTest {
     private List<Student> students = new ArrayList<>();
 
     @Test
-    public void getListClassA(){
+    public void getListClassA() {
         School school = new School();
-        Student student1 = new Student(70,null);
-        Student student2 = new Student(45,null);
-        Student student3 = new Student(85,null);
-        Student student4 = new Student(60,null);
-        Student student5 = new Student(95,null);
-        Student student6 = new Student(65,null);
+        Student student1 = new Student(70, null);
+        Student student2 = new Student(45, null);
+        Student student3 = new Student(85, null);
+        Student student4 = new Student(60, null);
+        Student student5 = new Student(95, null);
+        Student student6 = new Student(65, null);
         List<Student> checkList = new ArrayList<>();
         school.add(student1);
         school.add(student2);
@@ -39,14 +39,14 @@ public class SchoolTest {
     }
 
     @Test
-    public void getListClassB(){
+    public void getListClassB() {
         School school = new School();
-        Student student1 = new Student(70,null);
-        Student student2 = new Student(45,null);
-        Student student3 = new Student(85,null);
-        Student student4 = new Student(60,null);
-        Student student5 = new Student(95,null);
-        Student student6 = new Student(65,null);
+        Student student1 = new Student(70, null);
+        Student student2 = new Student(45, null);
+        Student student3 = new Student(85, null);
+        Student student4 = new Student(60, null);
+        Student student5 = new Student(95, null);
+        Student student6 = new Student(65, null);
         List<Student> checkList = new ArrayList<>();
         school.add(student1);
         school.add(student2);
@@ -61,14 +61,14 @@ public class SchoolTest {
     }
 
     @Test
-    public void getListClassC(){
+    public void getListClassC() {
         School school = new School();
-        Student student1 = new Student(70,null);
-        Student student2 = new Student(45,null);
-        Student student3 = new Student(85,null);
-        Student student4 = new Student(60,null);
-        Student student5 = new Student(95,null);
-        Student student6 = new Student(65,null);
+        Student student1 = new Student(70, null);
+        Student student2 = new Student(45, null);
+        Student student3 = new Student(85, null);
+        Student student4 = new Student(60, null);
+        Student student5 = new Student(95, null);
+        Student student6 = new Student(65, null);
         List<Student> checkList = new ArrayList<>();
         school.add(student1);
         school.add(student2);
@@ -82,11 +82,11 @@ public class SchoolTest {
     }
 
     @Test
-    public void ListToMap(){
-        Student student1 = new Student(70,"Petrov");
-        Student student2 = new Student(45,"Vasilyev");
-        Student student3 = new Student(85,"Ivanov");
+    public void listToMap() {
+        Student student1 = new Student(70, "Petrov");
+        Student student2 = new Student(45, "Vasilyev");
+        Student student3 = new Student(85, "Ivanov");
         School school = new School();
-        assertThat(school.transform(List.of(student1,student2,student3)),equalTo(Map.of(student1.lastName,student1.score,student2.lastName,student2.score,student3.lastName,student3.score)));
+        assertThat(school.transform(List.of(student1, student2, student3)), equalTo(Map.of(student1.lastName, student1.score, student2.lastName, student2.score, student3.lastName, student3.score)));
     }
 }

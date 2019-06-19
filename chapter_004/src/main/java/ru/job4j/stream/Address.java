@@ -12,13 +12,17 @@ public class Address implements Comparable<Address> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Address address = (Address) o;
-        return home == address.home &&
-                apartment == address.apartment &&
-                city.equals(address.city) &&
-                street.equals(address.street);
+        return home == address.home
+                && apartment == address.apartment
+                && city.equals(address.city)
+                && street.equals(address.street);
     }
 
     @Override
@@ -26,7 +30,7 @@ public class Address implements Comparable<Address> {
         return Objects.hash(city, street, home, apartment);
     }
 
-    public Address(String city, String street, int home, int apartment){
+    public Address(String city, String street, int home, int apartment) {
         this.city = city;
         this.street = street;
         this.home = home;

@@ -13,7 +13,7 @@ public class School {
         return students.stream().filter(predicate).collect(Collectors.toList());
     }
 
-    Map<String,Integer> transform(List<Student> students){
+    Map<String, Integer> transform(List<Student> students) {
         return students.stream().collect(Collectors.toMap(e -> e.lastName, e -> e.score));
     }
 
@@ -21,7 +21,7 @@ public class School {
         studentList.add(student);
     }
 
-    List<Student> getStudents(){
+    List<Student> getStudents() {
         return studentList;
     }
 }
