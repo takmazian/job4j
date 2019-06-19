@@ -89,4 +89,17 @@ public class SchoolTest {
         School school = new School();
         assertThat(school.transform(List.of(student1, student2, student3)), equalTo(Map.of(student1.lastName, student1.score, student2.lastName, student2.score, student3.lastName, student3.score)));
     }
+
+    @Test
+    public void levelOfTest(){
+        Student student1 = new Student(70, "Petrov");
+        Student student2 = new Student(70, "Vasilyev");
+        School school = new School();
+        List<Student> list = new ArrayList<>();
+        list.add(student2);
+        list.add(null);
+        list.add(student1);
+        List<Student> students = school.levelOf(list,60);
+        assertThat(students,equalTo(List.of(student1,student2)));
+    }
 }
