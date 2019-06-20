@@ -13,8 +13,8 @@ public class PriorityQueue {
      * @param task задача
      */
     public void put(Task task) {
-        int position = 0;
-        int i = 0;
+        var position = 0;
+        var i = 0;
         for (Task task1 : tasks) {
             if (task.getPriority() > task1.getPriority()) {
                 position = i + 1;
