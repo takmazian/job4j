@@ -21,7 +21,7 @@
         <module>puzzle</module>
         <module>chess</module>
         <module>coffeemachine</module>
-
+        <module>tictactoe</module>
     </modules>
 
     <build>
