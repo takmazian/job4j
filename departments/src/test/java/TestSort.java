@@ -40,7 +40,7 @@ public class TestSort {
         List<Department> departmentList = List.of(dep1,dep2,dep3,dep4,dep5,dep6,dep7,dep8,dep10);
         List<Department> result = SortDepartment.sortDepartmentDesc(departmentList);
         for (Department department : result){
-            System.out.println(department.getCodeSubDepartment());
+            System.out.println(department.getCodeSubDepartment() + " " + department.hashCode());
         }
         assertThat(result, is(List.of(dep5,dep10,dep7,dep6,dep8,dep2,dep1,dep4,dep3)));
     }

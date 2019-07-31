@@ -21,7 +21,7 @@ public class Department implements Comparable<Department> {
             int result = 0;
             String left = this.getCodeSubDepartment();
             String right = o.getCodeSubDepartment();
-            int minLength = left.length() > right.length() ? right.length() : left.length();
+            int minLength = Math.min(left.length(), right.length());
             int i;
             for (i = 0; i < minLength; i++) {
                 int leftSymb = left.charAt(i);
