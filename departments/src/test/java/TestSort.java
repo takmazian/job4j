@@ -17,13 +17,14 @@ public class TestSort {
         Department dep6 = new Department("K2\\SK1\\SSK1");
         Department dep7 = new Department("K2\\SK1\\SSK2");
         Department dep8 = new Department("K1");
-        Department dep10 = new Department("K2\\SK1");
-        List<Department> departmentList = List.of(dep1,dep2,dep3,dep4,dep5,dep6,dep7,dep8,dep10);
-        List<Department> result = SortDepartment.sortDepartmentAsc(departmentList);
-        for (Department department : result){
+        Department dep9 = new Department("K2\\SK1");
+        List<Department> departmentList = List.of(dep1,dep2,dep3,dep4,dep5,dep6,dep7);
+        SortDepartment sortDepartment = new SortDepartment(departmentList);
+        sortDepartment.sortDepartmentAsc();
+        for (Department department : sortDepartment.getDepartments()){
             System.out.println(department.getCodeSubDepartment());
         }
-        assertThat(SortDepartment.sortDepartmentAsc(departmentList), is(List.of(dep8,dep1,dep3,dep4,dep2,dep5,dep10,dep6,dep7)));
+        assertThat(sortDepartment.getDepartments(), is(List.of(dep8,dep1,dep3,dep4,dep2,dep5,dep9,dep6,dep7)));
     }
 
     @Test
@@ -36,12 +37,13 @@ public class TestSort {
         Department dep6 = new Department("K2\\SK1\\SSK1");
         Department dep7 = new Department("K2\\SK1\\SSK2");
         Department dep8 = new Department("K1");
-        Department dep10 = new Department("K2\\SK1");
-        List<Department> departmentList = List.of(dep1,dep2,dep3,dep4,dep5,dep6,dep7,dep8,dep10);
-        List<Department> result = SortDepartment.sortDepartmentDesc(departmentList);
-        for (Department department : result){
-            System.out.println(department.getCodeSubDepartment() + " " + department.hashCode());
+        Department dep9 = new Department("K2\\SK1");
+        List<Department> departmentList = List.of(dep1,dep2,dep3,dep4,dep5,dep6,dep7);
+        SortDepartment sortDepartment = new SortDepartment(departmentList);
+        sortDepartment.sortDepartmentDesc();
+        for (Department department : sortDepartment.getDepartments()){
+            System.out.println(department.getCodeSubDepartment());
         }
-        assertThat(result, is(List.of(dep5,dep10,dep7,dep6,dep8,dep2,dep1,dep4,dep3)));
+        assertThat(sortDepartment.getDepartments(), is(List.of(dep5,dep9,dep7,dep6,dep8,dep2,dep1,dep4,dep3)));
     }
 }
